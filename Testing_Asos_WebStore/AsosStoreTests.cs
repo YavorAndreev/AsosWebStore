@@ -11,6 +11,7 @@ namespace Testing_Asos_WebStore
     public class AsosStoreTests
     {
         public IWebDriver Driver { get; private set; }
+        
 
         [TestMethod]
         public void TestSignUpUsingJoinLink()
@@ -45,6 +46,18 @@ namespace Testing_Asos_WebStore
             Assert.IsTrue(asosHomePage.MyAccountIsDisplayed);
         }
 
+        [TestMethod]
+        public void TestMyOrdersSection()
+        {
+            var asosHomePage = new AsosHomePage(Driver);
+
+            asosHomePage.GoToUrl();
+            asosHomePage.ClickMyOrdersLink();
+            asosHomePage.ClickGoogleToLogIn();
+
+            Assert.IsTrue(asosHomePage.MyOrdersPageIsLoaded);
+        }
+        
         [TestInitialize]
         public void StartUpBeforeEveryTest()
         {
