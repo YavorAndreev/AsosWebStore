@@ -66,6 +66,48 @@ namespace Testing_Asos_WebStore
 
         }
 
+        internal EasyReturnsPage ClickEasyReturnsLink()
+        {
+            wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(5));
+            wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//p[contains(text(),'Easy')]"))).Click();
+            
+            return new EasyReturnsPage(Driver);
+        }
+
+        internal DeliveryAndReturnsPage ClickFreeDeliveryLink()
+        {
+            Driver.FindElement(By.XPath("//p[contains(text(),'Free')]")).Click();
+
+            return new DeliveryAndReturnsPage(Driver);
+        }
+
+        internal void ClickContactPreferencesLink()
+        {
+            wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(6));
+            
+            var acctMsg = wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//*[@data-testid='myAccountIcon']")));
+            acctMsg.Click();
+
+            wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//*[@data-testid='contactpreferences-link']"))).Click();
+
+        }
+
+        internal ReturnsInformationPage ClickReturnsInformationLink()
+        {
+            
+
+            wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(6));
+            var acctMsg = wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//*[@data-testid='myAccountIcon']")));
+            acctMsg.Click();
+            var returnsLink = wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//*[@data-testid='returnsinformation-link']")));
+            returnsLink.Click();
+
+            return new ReturnsInformationPage(Driver);
+
+            
+           
+        }
+
         internal void ClickMyOrdersLink()
         {
             Driver.FindElement(By.XPath("//*[@type='accountUnfilled']")).Click();
@@ -78,12 +120,12 @@ namespace Testing_Asos_WebStore
             
         }
 
-        internal void ClickGoogleToLogIn()
+        internal ContactPreferencesPage ClickGoogleToLogIn()
         {
             wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(5));
             wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//span[contains(text(),'Google')]"))).Click();
 
-            wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(5));
+            wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(8));
             wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//input[@type='email']"))).SendKeys("proben1918@gmail.com");
             Driver.FindElement(By.XPath("//*[@class='VfPpkd-LgbsSe VfPpkd-LgbsSe-OWXEXe-k8QpJ VfPpkd-LgbsSe-OWXEXe-dgl2Hf nCP5yc AjY5Oe DuMIQc qIypjc TrZEUc lw1w4b']")).Click();
             
@@ -91,7 +133,8 @@ namespace Testing_Asos_WebStore
             wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//*[@type='password']"))).SendKeys("lordNikon");
 
             Driver.FindElement(By.XPath("//*[@class='VfPpkd-LgbsSe VfPpkd-LgbsSe-OWXEXe-k8QpJ VfPpkd-LgbsSe-OWXEXe-dgl2Hf nCP5yc AjY5Oe DuMIQc qIypjc TrZEUc lw1w4b']")).Click();
-            Thread.Sleep(10000);
+
+            return new ContactPreferencesPage(Driver);
             
         }
 
