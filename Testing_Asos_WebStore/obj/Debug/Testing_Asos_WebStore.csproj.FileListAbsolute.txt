@@ -17,4 +17,3 @@ C:\Users\Javor\source\repos\Testing_Asos_WebStore\Testing_Asos_WebStore\obj\Debu
 C:\Users\Javor\source\repos\Testing_Asos_WebStore\Testing_Asos_WebStore\obj\Debug\Testing_Asos_WebStore.dll
 C:\Users\Javor\source\repos\Testing_Asos_WebStore\Testing_Asos_WebStore\obj\Debug\Testing_Asos_WebStore.pdb
 C:\Users\Javor\source\repos\Testing_Asos_WebStore\Testing_Asos_WebStore\bin\Debug\chromedriver.exe
-C:\Users\Javor\source\repos\Testing_Asos_WebStore\Testing_Asos_WebStore\bin\Debug\SeleniumExtras.WaitHelpers.dll
