@@ -8,10 +8,9 @@ using System.Reflection;
 namespace Testing_Asos_WebStore
 {
     [TestClass]
-    public class AsosStoreTests
+    public class AsosStoreTests : AsosStoreTestsBasePage
     {
-        public IWebDriver Driver { get; private set; }
-        internal AsosHomePage HomePage { get; private set; }
+        
 
         [TestMethod]
         public void TestSignUpUsingJoinLink()
@@ -97,27 +96,6 @@ namespace Testing_Asos_WebStore
             Assert.IsTrue(easyReturnsPage.IsLoaded);
         }
 
-        [TestInitialize]
-        public void StartUpBeforeEveryTest()
-        {
-             Driver = GetChromeDriver();
-             Driver.Manage().Window.Maximize();
-             
-            HomePage = new AsosHomePage(Driver);
-        }
-
-        [TestCleanup]
-        public void CleanUpAfterEveryTest()
-        {
-            Driver.Close();
-            Driver.Quit();
-        }
-
-        private IWebDriver GetChromeDriver()
-        {
-            var path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            return new ChromeDriver(path);
-            
-        }
+        
     }
 }

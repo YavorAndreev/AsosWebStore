@@ -35,7 +35,8 @@ namespace Testing_Asos_WebStore
             }
         }
 
-        
+        public MenSection MenSection => new MenSection(Driver);
+
         public AsosHomePage(IWebDriver driver)
         {
             Driver = driver;
