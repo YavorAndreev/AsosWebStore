@@ -5,15 +5,17 @@ using System;
 using System.Threading;
 using ExpectedConditions = SeleniumExtras.WaitHelpers.ExpectedConditions;
 
-namespace Testing_Asos_WebStore
+namespace Testing_Asos_WebStore.Pages
 {
-    public class MenSection
+    public class MenSection 
     {
-        public IWebDriver Driver { get; }
         public WebDriverWait wait;
+        public IWebDriver Driver;
+
         public MenSection(IWebDriver driver)
         {
             Driver = driver;
+            wait = new WebDriverWait(driver, TimeSpan.FromSeconds(8));
         }
 
         internal void ClickMenLink()
@@ -23,7 +25,6 @@ namespace Testing_Asos_WebStore
 
         internal VansShoesPage ClickShoesAndChoseVans()
         {
-            wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(7));
 
             var shoesLink = wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//button[@data-id='87a52035-f6fa-401f-bd58-0d259e403cbb']")));
             shoesLink.Click();
@@ -46,6 +47,22 @@ namespace Testing_Asos_WebStore
             }
             Console.WriteLine("The total number of black sandals is: " + blackSandals.Count);
             return new OnlyBlackSandals(Driver);
+        }
+
+        internal OnlyBlueFredPerryProducts FilterProductsByColour()
+        {
+            
+            wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//div[contains(text(),'Colour')]"))).Click();
+            wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//label[@for='base_colour_3']"))).Click();
+            return new OnlyBlueFredPerryProducts(Driver);
+        }
+
+        internal FredPerryPage TypeProductNameInSearchBox(string productName)
+        {
+            var searchBox = Driver.FindElement(By.Id("chrome-search"));
+            searchBox.SendKeys(productName);
+            Driver.FindElement(By.XPath("//*[@data-testid='search-button-inline']")).Click();
+            return new FredPerryPage(Driver);
         }
 
         internal MenSandalsPage ChoseByProduct()
@@ -75,10 +92,7 @@ namespace Testing_Asos_WebStore
             var miniBag = wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//*[@data-testid='miniBagIcon']")));
             miniBag.Click();
             
-            //var viewBagButton = wait.Until(ExpectedConditions.ElementToBeClickable(By.XPath("//a[@data-test-id='bag-link']")));
-           // viewBagButton.Click();
-
-            wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//a[@class='bag-total-button bag-total-button--checkout bag-total-button--checkout--total']"))).Click();
+            wait.Until(ExpectedConditions.ElementExists(By.XPath("//a[@class='bag-total-button bag-total-button--checkout bag-total-button--checkout--total']"))).Click();
            
         }
     }
