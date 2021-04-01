@@ -24,16 +24,38 @@ namespace Testing_Asos_WebStore
         internal VansShoesPage ClickShoesAndChoseVans()
         {
             wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(7));
-            Actions action = new Actions(Driver);
 
             var shoesLink = wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//button[@data-id='87a52035-f6fa-401f-bd58-0d259e403cbb']")));
             shoesLink.Click();
             var vansShoesLink = wait.Until(ExpectedConditions.ElementExists(By.XPath("//span[contains(text(),'Vans')]")));
             vansShoesLink.Click();
 
-           // action.MoveToElement(shoesLink).MoveToElement(vansShoesLink).Click().Build().Perform();
-
             return new VansShoesPage(Driver);
+        }
+
+        internal OnlyBlackSandals ChoseProductUsingColourFilter()
+        {
+            wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(5));
+            Driver.FindElement(By.XPath("//div[contains(text(),'Colour')]")).Click();
+            Driver.FindElement(By.XPath("//label[@for='base_colour_4']")).Click();
+            var blackSandals = wait.Until(ExpectedConditions.VisibilityOfAllElementsLocatedBy(By.ClassName("_3J74XsK")));
+
+            for(int i = 0; i<blackSandals.Count; i++)
+            {
+                Console.WriteLine(blackSandals[i].Text);
+            }
+            Console.WriteLine("The total number of black sandals is: " + blackSandals.Count);
+            return new OnlyBlackSandals(Driver);
+        }
+
+        internal MenSandalsPage ChoseByProduct()
+        {
+            wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(7));
+            var shoesLink = wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//button[@data-id='87a52035-f6fa-401f-bd58-0d259e403cbb']")));
+            shoesLink.Click();
+            wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//*[@href = 'https://www.asos.com/men/shoes-boots-trainers/sandals/cat/?cid=6593&nlid=mw|shoes|shop+by+product|sandals']"))).Click();
+
+            return new MenSandalsPage(Driver);
         }
 
         internal CheckoutPage LoadCheckoutPage()

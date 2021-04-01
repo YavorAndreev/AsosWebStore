@@ -1,10 +1,7 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System;
-using System.Threading;
-using SeleniumExtras.WaitHelpers;
 using ExpectedConditions = OpenQA.Selenium.Support.UI.ExpectedConditions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium.Interactions;
 
 namespace Testing_Asos_WebStore
@@ -13,7 +10,7 @@ namespace Testing_Asos_WebStore
     {
         private IWebDriver Driver { get; set; }
         private WebDriverWait wait;
-        Actions action;
+        readonly Actions action;
         public bool RegistrationIsNotPossible => Driver.FindElement(By.XPath("//li[contains(text(),'Sorry, we cannot create')]")).Displayed ;
         public bool MyOrdersPageIsLoaded 
         {
