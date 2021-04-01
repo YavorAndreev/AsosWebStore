@@ -15,8 +15,7 @@ namespace Testing_Asos_WebStore
         [TestMethod]
         public void TestingMenVansShoesSectionAndPlaceOrder()
         {
-            var HomePage = new AsosHomePage(Driver);
-
+            
             HomePage.GoToUrl();
             HomePage.MenSection.ClickMenLink();
 
@@ -29,8 +28,21 @@ namespace Testing_Asos_WebStore
             var checkoutPage = HomePage.MenSection.LoadCheckoutPage();
             Assert.IsTrue(checkoutPage.IsDisplayed);
 
-
          }
+
+        [TestMethod]
+        public void TestShoppingByProductUsingFilter()
+        {
+            HomePage.GoToUrl();
+            HomePage.MenSection.ClickMenLink();
+            var menSandalsPage = HomePage.MenSection.ChoseByProduct();
+
+            Assert.IsTrue(menSandalsPage.IsLoaded);
+
+            var onlyBlackSandals = HomePage.MenSection.ChoseProductUsingColourFilter();
+            Assert.IsTrue(onlyBlackSandals.IsProperlyLoaded);
+
+        }
 
        
     }
