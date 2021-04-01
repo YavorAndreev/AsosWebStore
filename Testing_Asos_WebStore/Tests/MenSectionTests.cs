@@ -42,6 +42,21 @@ namespace Testing_Asos_WebStore
             var onlyBlackSandals = HomePage.MenSection.ChoseProductUsingColourFilter();
             Assert.IsTrue(onlyBlackSandals.IsProperlyLoaded);
 
+         }
+
+        [TestMethod]
+
+        public void SearchProductUsingSearchBox()
+        {
+            HomePage.GoToUrl();
+            HomePage.MenSection.ClickMenLink();
+            var fredPerryPage = HomePage.MenSection.TypeProductNameInSearchBox("Fred Perry");
+
+            Assert.IsTrue(fredPerryPage.IsLoaded);
+
+            var onlyBlueProducts =  HomePage.MenSection.FilterProductsByColour();
+
+            Assert.IsTrue(onlyBlueProducts.IsLoadedProperly);
         }
 
        

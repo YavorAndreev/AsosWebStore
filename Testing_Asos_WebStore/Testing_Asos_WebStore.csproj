@@ -59,20 +59,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AsosHomePage.cs" />
-    <Compile Include="AsosStoreTests.cs" />
-    <Compile Include="CheckoutPage.cs" />
-    <Compile Include="ContactPreferencesPage.cs" />
-    <Compile Include="DeliveryAndReturnsPage.cs" />
-    <Compile Include="EasyReturnsPage.cs" />
-    <Compile Include="MenSandalsPage.cs" />
-    <Compile Include="MenSection.cs" />
-    <Compile Include="OnlyBlackSandals.cs" />
+    <Compile Include="Pages\AsosHomePage.cs" />
+    <Compile Include="Tests\AsosStoreTests.cs" />
+    <Compile Include="Pages\CheckoutPage.cs" />
+    <Compile Include="Pages\ContactPreferencesPage.cs" />
+    <Compile Include="Pages\DeliveryAndReturnsPage.cs" />
+    <Compile Include="Pages\EasyReturnsPage.cs" />
+    <Compile Include="Pages\FredPerryPage.cs" />
+    <Compile Include="Pages\MenSandalsPage.cs" />
+    <Compile Include="Pages\MenSection.cs" />
+    <Compile Include="Pages\OnlyBlackSandals.cs" />
+    <Compile Include="Pages\OnlyBlueFredPerryProducts.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ReturnsInformationPage.cs" />
-    <Compile Include="MenSectionTests.cs" />
-    <Compile Include="AsosStoreTestsBasePage.cs" />
-    <Compile Include="VansShoesPage.cs" />
+    <Compile Include="Pages\ReturnsInformationPage.cs" />
+    <Compile Include="Tests\MenSectionTests.cs" />
+    <Compile Include="Tests\AsosStoreTestsBasePage.cs" />
+    <Compile Include="Pages\VansShoesPage.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

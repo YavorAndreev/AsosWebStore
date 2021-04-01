@@ -3,6 +3,7 @@ using OpenQA.Selenium.Support.UI;
 using System;
 using ExpectedConditions = OpenQA.Selenium.Support.UI.ExpectedConditions;
 using OpenQA.Selenium.Interactions;
+using Testing_Asos_WebStore.Pages;
 
 namespace Testing_Asos_WebStore
 {
