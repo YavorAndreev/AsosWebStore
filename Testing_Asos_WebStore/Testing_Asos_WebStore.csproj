@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Pages\AsosHomePage.cs" />
+    <Compile Include="Pages\TheNorthFacePage.cs" />
     <Compile Include="Tests\AsosStoreTests.cs" />
     <Compile Include="Pages\CheckoutPage.cs" />
     <Compile Include="Pages\ContactPreferencesPage.cs" />

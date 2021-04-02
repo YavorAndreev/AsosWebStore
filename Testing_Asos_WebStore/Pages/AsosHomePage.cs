@@ -11,13 +11,13 @@ namespace Testing_Asos_WebStore
     {
         private IWebDriver Driver { get; set; }
         private WebDriverWait wait;
-        readonly Actions action;
+        
         public bool RegistrationIsNotPossible => Driver.FindElement(By.XPath("//li[contains(text(),'Sorry, we cannot create')]")).Displayed ;
         public bool MyOrdersPageIsLoaded 
         {
             get
             {
-                wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(8));
+                InitiateWaitVariable();
                 var myOrdersUrl = wait.Until(ExpectedConditions.UrlContains("orders"));
                 
                 return myOrdersUrl;
@@ -27,7 +27,7 @@ namespace Testing_Asos_WebStore
         {
             get 
             {
-                wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(8));
+                InitiateWaitVariable();
                 var welcomeMsg = wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//span[contains(text(),'My Account')]"))).Displayed;
                 return welcomeMsg;
             }
@@ -67,7 +67,7 @@ namespace Testing_Asos_WebStore
 
         internal EasyReturnsPage ClickEasyReturnsLink()
         {
-            wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(5));
+            InitiateWaitVariable();
             wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//p[contains(text(),'Easy')]"))).Click();
             
             return new EasyReturnsPage(Driver);
@@ -82,7 +82,7 @@ namespace Testing_Asos_WebStore
 
         internal void ClickContactPreferencesLink()
         {
-            wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(6));
+            InitiateWaitVariable();
             
             var acctMsg = wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//*[@data-testid='myAccountIcon']")));
             acctMsg.Click();
@@ -95,7 +95,7 @@ namespace Testing_Asos_WebStore
         {
             
 
-            wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(6));
+            InitiateWaitVariable();
             var acctMsg = wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//*[@data-testid='myAccountIcon']")));
             acctMsg.Click();
             var returnsLink = wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//*[@data-testid='returnsinformation-link']")));
@@ -111,7 +111,7 @@ namespace Testing_Asos_WebStore
         {
             Driver.FindElement(By.XPath("//*[@type='accountUnfilled']")).Click();
 
-            wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(5));
+            InitiateWaitVariable();
             wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//a[@data-testid='myorders-link']"))).Click();
            
 
@@ -121,14 +121,12 @@ namespace Testing_Asos_WebStore
 
         internal ContactPreferencesPage ClickGoogleToLogIn()
         {
-            wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(5));
+            InitiateWaitVariable();
             wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//span[contains(text(),'Google')]"))).Click();
 
-            wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(8));
             wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//input[@type='email']"))).SendKeys("proben1918@gmail.com");
             Driver.FindElement(By.XPath("//*[@class='VfPpkd-LgbsSe VfPpkd-LgbsSe-OWXEXe-k8QpJ VfPpkd-LgbsSe-OWXEXe-dgl2Hf nCP5yc AjY5Oe DuMIQc qIypjc TrZEUc lw1w4b']")).Click();
             
-            wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(5));
             wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//*[@type='password']"))).SendKeys("lordNikon");
 
             Driver.FindElement(By.XPath("//*[@class='VfPpkd-LgbsSe VfPpkd-LgbsSe-OWXEXe-k8QpJ VfPpkd-LgbsSe-OWXEXe-dgl2Hf nCP5yc AjY5Oe DuMIQc qIypjc TrZEUc lw1w4b']")).Click();
@@ -141,7 +139,7 @@ namespace Testing_Asos_WebStore
         {
             Driver.FindElement(By.XPath("//*[@type='accountUnfilled']")).Click();
 
-            wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(5));
+            InitiateWaitVariable();
             wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//*[@data-testid='myaccount-link']"))).Click();
 
            
@@ -150,15 +148,13 @@ namespace Testing_Asos_WebStore
 
         internal void ClickGoogleLinkAndFillInformation()
         {
-            wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
+            InitiateWaitVariable();
             wait.Until(ExpectedConditions.ElementToBeClickable(By.XPath("//span[contains(text(),'Google')]"))).Click();
             
-            wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(15));
             wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//input[@type='email']"))).SendKeys("proben1918@gmail.com");
             
             Driver.FindElement(By.XPath("//*[@class='VfPpkd-LgbsSe VfPpkd-LgbsSe-OWXEXe-k8QpJ VfPpkd-LgbsSe-OWXEXe-dgl2Hf nCP5yc AjY5Oe DuMIQc qIypjc TrZEUc lw1w4b']")).Click();
             
-            wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(8));
             wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//*[@type='password']"))).SendKeys("lordNikon");
             
             Driver.FindElement(By.XPath("//*[@class='VfPpkd-LgbsSe VfPpkd-LgbsSe-OWXEXe-k8QpJ VfPpkd-LgbsSe-OWXEXe-dgl2Hf nCP5yc AjY5Oe DuMIQc qIypjc TrZEUc lw1w4b']")).Click();
@@ -167,7 +163,7 @@ namespace Testing_Asos_WebStore
 
             try 
             {
-                wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(15));
+       
                 var acctCreated = wait.Until(ExpectedConditions.ElementExists(By.XPath("//span[contains(text(),'Hi Yavor')]"))).Enabled;
                 isAcctCreated = Convert.ToBoolean(acctCreated);
                 
@@ -183,7 +179,6 @@ namespace Testing_Asos_WebStore
                 var myAcct = Driver.FindElement(By.XPath("//span[@type='accountFilled']"));
                 myAcct.Click();
                 
-                wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(8));
                 var acctName = wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//span[contains(text(),'Hi Yavor')]"))).Text;
                 
                 Console.WriteLine("You have already registered account with this name: " + acctName);                
@@ -210,9 +205,15 @@ namespace Testing_Asos_WebStore
         {
             Driver.FindElement(By.XPath("//*[@type='accountUnfilled']")).Click();
 
-            var wait = new WebDriverWait(Driver,TimeSpan.FromSeconds(5));
+            InitiateWaitVariable();
+            //var wait = new WebDriverWait(Driver,TimeSpan.FromSeconds(5));
             wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//*[@data-testid='signup-link']"))).Click();
             
+        }
+
+        private void InitiateWaitVariable()
+        {
+            wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
         }
     }
 }
