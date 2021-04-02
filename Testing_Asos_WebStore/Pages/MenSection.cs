@@ -36,7 +36,7 @@ namespace Testing_Asos_WebStore.Pages
 
         internal OnlyBlackSandals ChoseProductUsingColourFilter()
         {
-            wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(5));
+            
             Driver.FindElement(By.XPath("//div[contains(text(),'Colour')]")).Click();
             Driver.FindElement(By.XPath("//label[@for='base_colour_4']")).Click();
             var blackSandals = wait.Until(ExpectedConditions.VisibilityOfAllElementsLocatedBy(By.ClassName("_3J74XsK")));
@@ -45,7 +45,9 @@ namespace Testing_Asos_WebStore.Pages
             {
                 Console.WriteLine(blackSandals[i].Text);
             }
-            Console.WriteLine("The total number of black sandals is: " + blackSandals.Count);
+
+            var filteredProducts = Driver.FindElement(By.XPath("//p[@data-auto-id='styleCount']"));
+            Console.WriteLine("The total number of black sandals is: " + filteredProducts.Text);
             return new OnlyBlackSandals(Driver);
         }
 
@@ -55,6 +57,12 @@ namespace Testing_Asos_WebStore.Pages
             wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//div[contains(text(),'Colour')]"))).Click();
             wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//label[@for='base_colour_3']"))).Click();
             return new OnlyBlueFredPerryProducts(Driver);
+        }
+
+        internal TheNorthFacePage CLickTheNorthFaceLogo()
+        {
+            Driver.FindElement(By.XPath("//img[@alt='northface']")).Click();
+            return new TheNorthFacePage(Driver);
         }
 
         internal FredPerryPage TypeProductNameInSearchBox(string productName)
@@ -67,7 +75,7 @@ namespace Testing_Asos_WebStore.Pages
 
         internal MenSandalsPage ChoseByProduct()
         {
-            wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(7));
+           
             var shoesLink = wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//button[@data-id='87a52035-f6fa-401f-bd58-0d259e403cbb']")));
             shoesLink.Click();
             wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//*[@href = 'https://www.asos.com/men/shoes-boots-trainers/sandals/cat/?cid=6593&nlid=mw|shoes|shop+by+product|sandals']"))).Click();
@@ -88,7 +96,7 @@ namespace Testing_Asos_WebStore.Pages
 
             Actions action = new Actions(Driver);
 
-            wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
+            
             var miniBag = wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//*[@data-testid='miniBagIcon']")));
             miniBag.Click();
             

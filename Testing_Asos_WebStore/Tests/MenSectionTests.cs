@@ -59,6 +59,15 @@ namespace Testing_Asos_WebStore
             Assert.IsTrue(onlyBlueProducts.IsLoadedProperly);
         }
 
-       
+       [TestMethod]
+       public void TestMenTrendingBrands()
+        {
+            HomePage.GoToUrl();
+            HomePage.MenSection.ClickMenLink();
+            var northFacePage = HomePage.MenSection.CLickTheNorthFaceLogo();
+            northFacePage.CountTheNumberOfProducts();
+
+            Assert.IsTrue(northFacePage.IsLoaded, "You are not on The North Face page!");
+        }
     }
 }
