@@ -60,7 +60,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Pages\AsosHomePage.cs" />
+    <Compile Include="Pages\AsosLuxePage.cs" />
     <Compile Include="Pages\TheNorthFacePage.cs" />
+    <Compile Include="Pages\WomensDressesPage.cs" />
+    <Compile Include="Pages\WomenSection.cs" />
     <Compile Include="Tests\AsosStoreTests.cs" />
     <Compile Include="Pages\CheckoutPage.cs" />
     <Compile Include="Pages\ContactPreferencesPage.cs" />
@@ -76,6 +79,7 @@
     <Compile Include="Tests\MenSectionTests.cs" />
     <Compile Include="Tests\AsosStoreTestsBasePage.cs" />
     <Compile Include="Pages\VansShoesPage.cs" />
+    <Compile Include="Tests\WomenSectionTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
