@@ -9,8 +9,27 @@ namespace Testing_Asos_WebStore
 {
     internal class AsosHomePage
     {
-        private IWebDriver Driver { get; set; }
         private WebDriverWait wait;
+
+        
+
+        private IWebDriver Driver { get; set; }
+        public MenSection MenSection => new MenSection(Driver);
+
+        public WomenSection WomenSection => new WomenSection(Driver);
+
+
+        public AsosHomePage(IWebDriver driver)
+        {
+            Driver = driver;
+        }
+        
+        internal void ClickWomenLink()
+        {
+            InitiateWaitVariable();
+            wait.Until(ExpectedConditions.ElementIsVisible(By.Id("women-floor"))).Click();
+        }
+
         
         public bool RegistrationIsNotPossible => Driver.FindElement(By.XPath("//li[contains(text(),'Sorry, we cannot create')]")).Displayed ;
         public bool MyOrdersPageIsLoaded 
@@ -33,18 +52,18 @@ namespace Testing_Asos_WebStore
             }
         }
 
-        public MenSection MenSection => new MenSection(Driver);
-
-        public AsosHomePage(IWebDriver driver)
-        {
-            Driver = driver;
-        }
-
+        
         internal void GoToUrl()
         {
             Driver.Navigate().GoToUrl("https://www.asos.com/");
         }
 
+        internal void ClickMyProfileIcon()
+        {
+            InitiateWaitVariable();
+            Driver.FindElement(By.XPath("//*[@type='accountUnfilled']")).Click();
+            wait.Until(ExpectedConditions.ElementToBeClickable(By.XPath("//a[@data-testid='signin-link']"))).Click();
+        }
         internal void FillSignUpFormAndSubmit()
         {
             Driver.FindElement(By.Id("Email")).SendKeys("proben1918@gmail.com");
