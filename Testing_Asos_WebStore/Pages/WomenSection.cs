@@ -27,5 +27,13 @@ namespace Testing_Asos_WebStore
             Driver.FindElement(By.XPath("//*[@data-analytics-id='roe-gblluxeincau-shopthebrand']")).Click();
             return new AsosLuxePage(Driver);
         }
+
+        internal AsosSnapChatPage ClickSnapChatIcon()
+        {
+            Driver.FindElement(By.XPath("//*[@aria-label='Snapchat']")).Click();
+            var newWindow = Driver.WindowHandles;
+            Driver.SwitchTo().Window(newWindow[1]);
+            return new AsosSnapChatPage(Driver);
+        }
     }
 }
