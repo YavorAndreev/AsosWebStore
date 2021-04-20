@@ -9,7 +9,7 @@ namespace Testing_Asos_WebStore.Tests
         [TestMethod]
         public void TestBuyingFredPerryDress()
         {
-            HomePage.GoToUrl();
+            NavigateToWebPage();
             HomePage.ClickMyProfileIcon();
             HomePage.ClickGoogleToLogIn();
             HomePage.ClickWomenLink();
@@ -22,7 +22,7 @@ namespace Testing_Asos_WebStore.Tests
         [TestMethod]
         public void TestSelectAsosLuxeBrand()
         {
-            HomePage.GoToUrl();
+            NavigateToWebPage();
             HomePage.ClickWomenLink();
             var asosLuxePage = HomePage.WomenSection.ClickAsosLuxeLink();
 
@@ -32,12 +32,14 @@ namespace Testing_Asos_WebStore.Tests
         [TestMethod]
         public void TestAsosSnapChatPage()
         {
-            HomePage.GoToUrl();
+            NavigateToWebPage();
             HomePage.ClickWomenLink();
             var asosSnapChatPage = HomePage.WomenSection.ClickSnapChatIcon();
 
             Assert.IsTrue(asosSnapChatPage.IsLoaded, "You are on a wrong webpage");
-            
+
         }
+
+        
     }
 }

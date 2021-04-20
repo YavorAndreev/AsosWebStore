@@ -17,7 +17,7 @@ namespace Testing_Asos_WebStore
 
         internal WomensDressesPage ClickDressesLink()
         {
-            Driver.FindElement(By.XPath("//p[contains(text(),'DRESSES')]")).Click();
+            Driver.FindElement(By.XPath("//span[contains(text(),'DRESSES')]")).Click();
             return new WomensDressesPage(Driver);
         }
 
