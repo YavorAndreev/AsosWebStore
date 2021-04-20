@@ -37,6 +37,7 @@ namespace Testing_Asos_WebStore.Tests
             var asosSnapChatPage = HomePage.WomenSection.ClickSnapChatIcon();
 
             Assert.IsTrue(asosSnapChatPage.IsLoaded, "You are on a wrong webpage");
+            
         }
     }
 }

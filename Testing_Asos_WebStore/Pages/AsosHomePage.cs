@@ -56,6 +56,7 @@ namespace Testing_Asos_WebStore
         internal void GoToUrl()
         {
             Driver.Navigate().GoToUrl("https://www.asos.com/");
+            Driver.FindElement(By.XPath("//button[@class='_1liAYhR tJuQyVP O9uX50u']")).Click();
         }
 
         internal void ClickMyProfileIcon()

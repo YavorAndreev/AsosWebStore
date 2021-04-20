@@ -1,7 +1,6 @@
 ﻿using OpenQA.Selenium;
 using System;
 
-
 namespace Testing_Asos_WebStore
 {
     public class WomenSection
