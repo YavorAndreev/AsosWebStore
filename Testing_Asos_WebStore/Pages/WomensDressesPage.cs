@@ -15,7 +15,7 @@ namespace Testing_Asos_WebStore
             Driver = driver;
         }
 
-        public bool IsLoaded => Driver.Title.Contains("Casual Dresses");
+        public bool IsLoaded => Driver.Title.Contains("Women's Dresses Sale");
 
         
     }

@@ -19,6 +19,11 @@ namespace Testing_Asos_WebStore
             return new ChromeDriver(path);
         }
 
+        protected void NavigateToWebPage()
+        {
+            HomePage.GoToUrl();
+        }
+
         [TestInitialize]
         public void StartUpBeforeEveryTest()
         {
