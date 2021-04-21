@@ -16,7 +16,7 @@ namespace Testing_Asos_WebStore
         public void TestingMenVansShoesSectionAndPlaceOrder()
         {
             
-            HomePage.GoToUrl();
+            NavigateToWebPage();
             HomePage.MenSection.ClickMenLink();
 
             var vansShoesPage = HomePage.MenSection.ClickShoesAndChoseVans();
@@ -33,7 +33,7 @@ namespace Testing_Asos_WebStore
         [TestMethod]
         public void TestShoppingByProductUsingFilter()
         {
-            HomePage.GoToUrl();
+            NavigateToWebPage();
             HomePage.MenSection.ClickMenLink();
             var menSandalsPage = HomePage.MenSection.ChoseByProduct();
 
@@ -48,7 +48,7 @@ namespace Testing_Asos_WebStore
 
         public void SearchProductUsingSearchBox()
         {
-            HomePage.GoToUrl();
+            NavigateToWebPage();
             HomePage.MenSection.ClickMenLink();
             var fredPerryPage = HomePage.MenSection.TypeProductNameInSearchBox("Fred Perry");
 
@@ -62,7 +62,7 @@ namespace Testing_Asos_WebStore
        [TestMethod]
        public void TestMenTrendingBrands()
         {
-            HomePage.GoToUrl();
+            NavigateToWebPage();
             HomePage.MenSection.ClickMenLink();
             var northFacePage = HomePage.MenSection.CLickTheNorthFaceLogo();
             northFacePage.CountTheNumberOfProducts();
