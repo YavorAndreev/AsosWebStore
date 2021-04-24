@@ -15,9 +15,9 @@ namespace Testing_Asos_WebStore
         [TestMethod]
         public void TestSignUpUsingJoinLink()
         {
-            
 
-            HomePage.GoToUrl();
+
+            NavigateToWebPage();
             HomePage.ClickJoinLink();
             HomePage.FillSignUpFormAndSubmit();
 
