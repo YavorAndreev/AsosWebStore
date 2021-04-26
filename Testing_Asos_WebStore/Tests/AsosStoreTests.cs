@@ -27,7 +27,7 @@ namespace Testing_Asos_WebStore
         [TestMethod]
         public void TestSignUpUsingGoogleAcct()
         {
-            HomePage.GoToUrl();
+            NavigateToWebPage();
             HomePage.ClickJoinLink();
             HomePage.ClickGoogleLinkAndFillInformation();
             
@@ -38,7 +38,7 @@ namespace Testing_Asos_WebStore
         public void TestLogInWithGoogleAcct()
         {
             
-            HomePage.GoToUrl();
+            NavigateToWebPage();
             HomePage.ClickMyAccountLink();
             HomePage.ClickGoogleToLogIn();
 
@@ -49,7 +49,7 @@ namespace Testing_Asos_WebStore
         public void TestMyOrdersSection()
         {
 
-            HomePage.GoToUrl();
+            NavigateToWebPage();
             HomePage.ClickMyOrdersLink();
             HomePage.ClickGoogleToLogIn();
 
@@ -61,7 +61,7 @@ namespace Testing_Asos_WebStore
         {
             
 
-            HomePage.GoToUrl();
+            NavigateToWebPage();
             ReturnsInformationPage returnsInformationPage = HomePage.ClickReturnsInformationLink();
 
             Assert.IsTrue(returnsInformationPage.IsLoaded);
@@ -71,7 +71,7 @@ namespace Testing_Asos_WebStore
         public void TestContactPreferencesLink() 
         {
             
-            HomePage.GoToUrl();
+            NavigateToWebPage();
             HomePage.ClickContactPreferencesLink();
             ContactPreferencesPage contactPreferencesPage =  HomePage.ClickGoogleToLogIn();
 
@@ -81,7 +81,7 @@ namespace Testing_Asos_WebStore
         [TestMethod]
         public void TestFreeDeliveryLink()
         {
-            HomePage.GoToUrl();
+            NavigateToWebPage();
             var deliveryPage = HomePage.ClickFreeDeliveryLink();
 
             Assert.IsTrue(deliveryPage.IsDisplayed);
@@ -90,7 +90,7 @@ namespace Testing_Asos_WebStore
         [TestMethod]
         public void TestEasyReturnsLink()
         {
-            HomePage.GoToUrl();
+            NavigateToWebPage();
             var easyReturnsPage = HomePage.ClickEasyReturnsLink();
 
             Assert.IsTrue(easyReturnsPage.IsLoaded);
