@@ -60,8 +60,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Pages\AsosHomePage.cs" />
+    <Compile Include="Pages\AsosMarketPlacePage.cs" />
     <Compile Include="Pages\AsosSnapChatPage.cs" />
     <Compile Include="Pages\AsosLuxePage.cs" />
+    <Compile Include="Pages\SunSetSkaterPage.cs" />
     <Compile Include="Pages\TheNorthFacePage.cs" />
     <Compile Include="Pages\WomensDressesPage.cs" />
     <Compile Include="Pages\WomenSection.cs" />
@@ -80,6 +82,7 @@
     <Compile Include="Tests\MenSectionTests.cs" />
     <Compile Include="Tests\AsosStoreTestsBasePage.cs" />
     <Compile Include="Pages\VansShoesPage.cs" />
+    <Compile Include="Tests\MarketPlaceTests.cs" />
     <Compile Include="Tests\WomenSectionTests.cs" />
   </ItemGroup>
   <ItemGroup>

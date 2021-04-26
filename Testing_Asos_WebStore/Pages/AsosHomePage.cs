@@ -230,6 +230,11 @@ namespace Testing_Asos_WebStore
             wait.Until(ExpectedConditions.ElementIsVisible(By.XPath("//*[@data-testid='signup-link']"))).Click();
             
         }
+        internal AsosMarketPlacePage ClickMarketPlaceLink()
+        {
+            Driver.FindElement(By.XPath("//a[@data-testid='marketplace']")).Click();
+            return new AsosMarketPlacePage(Driver);
+        }
 
         private void InitiateWaitVariable()
         {
