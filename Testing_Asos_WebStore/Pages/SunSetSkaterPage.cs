@@ -13,7 +13,7 @@ namespace Testing_Asos_WebStore
         }
 
         public bool IsLoaded => Driver.FindElement(By.XPath("//h1[contains(text(),'Sunset Skater')]")).Displayed;
-
+        public string NikeSelected => Driver.FindElement(By.XPath("//*[@data-facet-value='Nike']")).Text;
         internal void ChooseNikeBrandFromMenu()
         {
             var nikeBrand = Driver.FindElement(By.XPath("//*[@data-facet-value='Nike']"));

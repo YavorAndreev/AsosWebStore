@@ -19,7 +19,7 @@ namespace Testing_Asos_WebStore.Tests
             Assert.IsTrue(sunSetSkaterPage.IsLoaded);
 
             sunSetSkaterPage.ChooseNikeBrandFromMenu();
-
+            Assert.AreEqual("Nike", sunSetSkaterPage.NikeSelected);
 
         }
 
