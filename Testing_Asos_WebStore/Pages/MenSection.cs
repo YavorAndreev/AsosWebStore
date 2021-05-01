@@ -12,6 +12,8 @@ namespace Testing_Asos_WebStore.Pages
         public WebDriverWait wait;
         public IWebDriver Driver;
 
+        public bool FlagIsChanged => Driver.FindElement(By.XPath("//img[@alt='Croatia']")).Displayed;
+
         public MenSection(IWebDriver driver)
         {
             Driver = driver;
@@ -63,6 +65,24 @@ namespace Testing_Asos_WebStore.Pages
         {
             Driver.FindElement(By.XPath("//img[@alt='northface']")).Click();
             return new TheNorthFacePage(Driver);
+        }
+
+        internal void ChangeCountryAndCurrency()
+        {
+            
+            wait.Until(ExpectedConditions.ElementToBeClickable(By.Id("country"))).Click();
+            Driver.FindElement(By.XPath("//*[@value='HR']")).Click();
+            wait.Until(ExpectedConditions.ElementToBeClickable(By.Id("currency"))).Click();
+            Driver.FindElement(By.XPath("//*[@value='19']")).Click();
+            Driver.FindElement(By.XPath("//*[@class='_3jBV0Hh _2h9sodS']")).Click();
+
+             
+        }
+
+        internal void ClickCountryFlag()
+        {
+            var flagIcon = Driver.FindElements(By.XPath("//*[@alt='Bulgaria']"));
+            flagIcon[0].Click();
         }
 
         internal FredPerryPage TypeProductNameInSearchBox(string productName)
