@@ -69,5 +69,15 @@ namespace Testing_Asos_WebStore
 
             Assert.IsTrue(northFacePage.IsLoaded, "You are not on The North Face page!");
         }
+
+        [TestMethod]
+        public void ChangingCountryAndCurrencyPreferences()
+        {
+            NavigateToWebPage();
+            HomePage.MenSection.ClickCountryFlag();
+            HomePage.MenSection.ChangeCountryAndCurrency();
+
+            Assert.IsTrue(HomePage.MenSection.FlagIsChanged);
+        }
     }
 }
